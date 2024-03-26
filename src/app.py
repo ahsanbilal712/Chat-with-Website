@@ -9,9 +9,7 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 
-
 load_dotenv()
-
 
 def get_vectorstore_from_url(url):
     #get the text in doc form
@@ -69,9 +67,6 @@ def get_response(user_input):
 st.set_page_config(page_title="Chat with website", page_icon="🦜")
 st.title("Chat with Website")
  
-
-   
-
 #sidebar
 with st.sidebar:
     st.header("Settings")
@@ -99,8 +94,6 @@ else:
         response = get_response(user_query)
         st.session_state.chat_history.append(HumanMessage(content=user_query))
         st.session_state.chat_history.append(AIMessage(content = response))
-
-      
 
     # conversation
     for message in st.session_state.chat_history:
